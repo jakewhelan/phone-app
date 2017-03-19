@@ -11,7 +11,7 @@ const routes: Routes = [
 	// core module components
     { path: '', component: PhoneListComponent },
     // lazy loaded modules
-    { path: 'detail', loadChildren: './+phone-detail/phone-detail.module#PhoneDetailModule' },
+    { path: 'detail/:phoneSeoName', loadChildren: './+phone-detail/phone-detail.module#PhoneDetailModule' },
     // 404 page not found
 	{ path: '**', component: PageNotFoundComponent }
 ]

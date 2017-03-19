@@ -2006,17 +2006,26 @@ export class PhoneDataService {
 	    }
 	}
 
-	getPhone(id: number): Promise<any> {
+	getPhone(phoneSeoName: string): Promise<any> {
 		return this.getPhoneArray()
-			.then(phones => phones[id]);
+			.then(phones => phones.filter(phone => phone.seoName == phoneSeoName));
 	}
 
 	/*
 	 *	@function getPhoneArray
 	 *
+	 *	Transform the data so it's *ngFor friendly.
+	 *
 	 *	For each Object in the this.PHONES Object, assign the Object key
 	 *	to Object.key (to retain the key reference) and push the Object
 	 *	to the phoneArray any[], to be returned by PhoneDataService.
+	 *
+	 *	For each Object in the this.PHONES Object, transform the description
+	 *	property to hyphenated lowercase and assign to new property seoName.
+	 *
+	 *	For each Object in the this.PHONES Object, transform the rating property
+	 *	to a number[] where 1 represents a positive rating and 0 represents a
+	 *	negative rating.
 	 *
 	 */
 	getPhoneArray(): Promise<any> {
@@ -2025,7 +2034,24 @@ export class PhoneDataService {
 
     keys.forEach((key: any) => {
     	let phone = this.PHONES[key];
-      phone.key = key;
+    	let seoName = phone.description.split(' ').join('-').toLowerCase();
+    	let rating = Math.floor(phone.rating);
+    	let ratingDifference = 5 - rating;
+    	let ratingArray = [];
+    	/*
+    	 * Push a 1 to ratingArray for each star that should be yellow,
+    	 * push a 0 to ratingArray for each star that should be black
+    	 */
+    	for(let i = 1; i <= 5; i++) {
+    		if(i + ratingDifference < 5) {
+    			ratingArray.push(1);
+    		} else {
+    			ratingArray.push(0);
+    		}
+    	}
+    	phone.key = key;
+      phone.seoName = seoName;
+      phone.ratingArray = ratingArray;
       phoneArray.push(phone);
     });
 

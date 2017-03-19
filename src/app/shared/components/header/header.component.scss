@@ -13,5 +13,12 @@ header {
 
 .brand {
   @include grid(column, 12, align-middle);
+  @include grid(row, align-middle);
+  display: block;
   color: $brand-white;
+  text-decoration: none;
+}
+
+.brand__heading {
+  @include grid(column, 12, align-middle);
 }

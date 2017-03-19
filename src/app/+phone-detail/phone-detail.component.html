@@ -1,5 +1,33 @@
 <div class="container">
-  <p>
-    phone-detail works!
-  </p>
+  <div class="gallery">
+    <div class="gallery__preview">
+      <div class="gallery__preview__image"></div>
+      <div class="gallery__preview__image"></div>
+      <div class="gallery__preview__image"></div>
+    </div>
+  </div>
+  <div class="info">
+    <h2 class="info__heading">{{phone.description}}</h2>
+    <div class="info__rating">
+      <div class="info__rating__star" *ngFor="let rating of phone.ratingArray" [ngClass]="{'is-active': rating == 1}"></div>
+    </div>
+    <div class="info__price">{{phone.fromPrice}}</div>
+    <select class="info__sku-selection">
+      <option value="">SKU</option>
+    </select>
+    <div class="info__quantity-selection">
+      <button class="info__quantity-selection__decrement">-</button>
+      <input type="text" class="info__quantity-selection__value" value="1"/>
+      <button class="info__quantity-selection__increment">+</button>
+    </div>
+  </div>
+  <div class="overview">
+    <h2 class="overview__heading">Phone Overview</h2>
+    <div class="overview__table">
+      <div class="overview__table__row" *ngFor="let filterKey of phone.filterKeys">
+        <div class="overview__table__column">{{filterKey}}</div>
+        <div class="overview__table__column">{{phone.filterfeatures[filterKey]}}</div>
+      </div>
+    </div>
+  </div>
 </div>

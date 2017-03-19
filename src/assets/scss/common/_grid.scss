@@ -111,6 +111,11 @@
         align-self: flex-end;
       }
 
+      @if $modifier == "align-center" {
+        // flexbox items that do not fill a row will be center aligned.
+        margin-right: 0;
+      }
+
        @if $modifier == "align-middle" {
         // flexbox items will align to the bottom of a row in the case that they are not matching height.
         align-self: center;

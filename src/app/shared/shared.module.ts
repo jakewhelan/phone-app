@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
 
 // components
 import { HeaderComponent } from './components/header/header.component';
@@ -17,7 +18,8 @@ import { PhoneDataService } from './services/phone-data/phone-data.service';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   declarations: [
     HeaderComponent, 
@@ -29,7 +31,8 @@ import { PhoneDataService } from './services/phone-data/phone-data.service';
     // @angular modules
     HttpModule,
     FormsModule,
-
+    RouterModule,
+    
     // components
     HeaderComponent,
     FooterComponent,

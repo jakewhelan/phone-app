@@ -1,35 +1,91 @@
+@import "../../assets/scss/_common";
+
 :host {
+  @include grid(row);
   text-align: center;
 }
 
 .image {
-
+  @include grid(column, 12);
 }
 
 .colours {
-
+  @include grid(column, 12);
+  @include grid(row, null, align-center);
 }
 
 .colours__colour {
-
+  @include grid(column, auto);
+  width: 30px;
+  height: 50px;
+  border: $border;
+  &.is-white {
+    background: $brand-white;
+  }
+  &.is-black {
+    background: $brand-black;
+  }
+  &.is-grey {
+    background: $brand-grey;
+  }
+  &.is-gold{
+    background: $brand-gold;
+  }
+  &.is-silver {
+    background: $brand-silver;
+  }
+  &.is-blue-topaz {
+    background: $brand-blue;
+  }
+  &.is-rose-gold {
+    background: $brand-pink;
+  }
+  &.is-space-grey {
+    background: $brand-grey;
+  }
+  &.is-pink {
+    background: $brand-pink;
+  }
+  &.is-green {
+    background: $brand-green;
+  }
+  &.is-blue {
+    background: $brand-blue;
+  }
+  &.is-jet-black {
+    background: $brand-black;
+  }
 }
 
 .name {
-
+  @include grid(column, 12);
 }
 
 .rating {
+  @include grid(column, 12);
+  @include grid(row, null, align-center);
+}
 
+.rating__star {
+  @include grid(column, auto, align-center);
+  &:before {
+    content: "\2605";
+  }
+  &.is-active {
+    &:before {
+      color: $brand-gold;
+    }
+  }
 }
 
 .price {
-
+  @include grid(column, 12);
 }
 
 .availability {
-
+  @include grid(column, 12);
 }
 
 .cta {
-
+  @include grid(column, 12);
 }

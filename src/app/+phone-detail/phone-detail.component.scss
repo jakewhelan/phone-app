@@ -1,0 +1,31 @@
+@import "../../assets/scss/_common";
+
+.container {
+  @include grid(row);
+  background: grey;
+}
+
+.gallery {
+  @include grid(column, 6);
+  background: $brand-blue;
+}
+
+.info {
+  @include grid(column, 6);
+  background: $brand-green;
+}
+
+.info__rating__star {
+  &:before {
+    content: "\2605";
+  }
+  &.is-active {
+    &:before {
+      color: $brand-gold;
+    }
+  }
+}
+
+.overview {
+  @include grid(column, 12);
+}
