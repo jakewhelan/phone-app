@@ -111,6 +111,16 @@
         align-self: flex-end;
       }
 
+       @if $modifier == "align-middle" {
+        // flexbox items will align to the bottom of a row in the case that they are not matching height.
+        align-self: center;
+      }
+
+      @if $modifier == "align-left" {
+        // flexbox items that do not fill a row will be left aligned.
+        margin-right: 0;
+      }
+
       @if $modifier == "no-shrink" {
         // flexbox items will not shrink when their container becomes too small to contain them.
         flex-shrink: 0;

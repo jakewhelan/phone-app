@@ -1,8 +1,6 @@
-@import "./assets/scss/common/_variables";
-@import "./assets/scss/mixins/_hidden-from-humans-but-not-screen-readers";
-
 html {
   box-sizing: border-box; 
+  min-width: 320px;
 }
 
 *, *:before, *:after {

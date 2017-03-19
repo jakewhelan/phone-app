@@ -1,0 +1,17 @@
+@import "../../../../assets/scss/_common";
+
+header {
+  @include grid(row);
+  background: $brand-black;
+  height: 50px;
+}
+
+.container {
+  @include grid(column, 12);
+  @include grid(row, align-middle);
+}
+
+.brand {
+  @include grid(column, 12, align-middle);
+  color: $brand-white;
+}

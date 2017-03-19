@@ -1,0 +1,66 @@
+@import "../../assets/scss/_common";
+
+.container {
+  @include grid(row);
+}
+
+.filter-button {
+  @include grid(column, 2);
+  background: $brand-grey;
+  button {
+    &:before {
+      content: '\2295';
+    }
+  }
+}
+
+.filter {
+  @include grid(column, 10);
+  @include grid(row, null, align-left);
+  background: $brand-grey;
+}
+
+.filter__heading {
+  @include grid(column, 12);
+}
+
+.filter__value {
+  @include grid(column, 12, align-left);
+
+  input {
+
+  }
+
+  label {
+
+  }
+
+   @include breakpoint(medium) {
+    @include grid(column, 6, align-left)
+  }
+
+  @include breakpoint(large) {
+    @include grid(column, 3, align-left)
+  }
+}
+
+.list {
+  @include grid(column, 12);
+  @include grid(row, null, align-left);
+  border-top: $border;
+  border-left: $border;
+}
+
+.list__phone {
+  @include grid(column, 12);
+  border-right: $border;
+  border-bottom: $border;
+
+  @include breakpoint(medium) {
+    @include grid(column, 6, align-left)
+  }
+
+  @include breakpoint(large) {
+    @include grid(column, 3, align-left)
+  }
+}

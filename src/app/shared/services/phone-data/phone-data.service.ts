@@ -2007,12 +2007,34 @@ export class PhoneDataService {
 	}
 
 	getPhone(id: number): Promise<any> {
-		return this.getPhones()
+		return this.getPhoneArray()
 			.then(phones => phones[id]);
 	}
 
+	/*
+	 *	@function getPhoneArray
+	 *
+	 *	For each Object in the this.PHONES Object, assign the Object key
+	 *	to Object.key (to retain the key reference) and push the Object
+	 *	to the phoneArray any[], to be returned by PhoneDataService.
+	 *
+	 */
+	getPhoneArray(): Promise<any> {
+		const keys = Object.keys(this.PHONES);
+    let phoneArray = [];
+
+    keys.forEach((key: any) => {
+    	let phone = this.PHONES[key];
+      phone.key = key;
+      phoneArray.push(phone);
+    });
+
+    return Promise.resolve(phoneArray);
+	}
+	
+
 	getPhones(): Promise<any> {
-		return Promise.resolve(this.PHONES);
+		return this.getPhoneArray();
 	}
 
 }

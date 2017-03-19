@@ -1,5 +1,15 @@
 <div class="container">
-  <p>
-    phone-list works!
-  </p>
+  <div class="filter-button">
+    <button (click)="ok()"></button>
+  </div>
+  <div class="filter">
+    <div class="filter__heading">Filters: </div>
+    <div class="filter__value" *ngFor="let filter of filters">
+      <input type="checkbox" [name]="filter" [value]="filter" [id]="filter">
+      <label [for]="filter">{{filter}}</label>
+    </div>
+  </div>
+  <div class="list">
+    <app-phone class="list__phone p5" *ngFor="let phone of phones"></app-phone>
+  </div>
 </div>

@@ -7,7 +7,7 @@ import { PhoneDetailComponent } from './phone-detail.component';
 
 // routes declaration
 const routes: Routes = [
-	// core module components
+	// phone detail module components
     { path: '', component: PhoneDetailComponent },
 ]
 
