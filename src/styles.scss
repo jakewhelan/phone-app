@@ -1,8 +1,8 @@
-@import "./assets/scss/base.scss";
+@import "./assets/scss/_base.scss";
 
 .container {
 
-	max-width: 1250px !important;
+	max-width: $app-width !important;
 	min-width: 0 !important;
 	margin: 0 auto;
 
