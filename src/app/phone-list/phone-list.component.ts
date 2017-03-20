@@ -19,7 +19,18 @@ export class PhoneListComponent implements OnInit {
   filteredPhones: any[];
   filters: string[] = ["3G", "Android", "Bluetooth", "Camera", "Email", "FM radio", "Internet browser", "MP3 player", "Picture messaging", "Smartphone", "Touchscreen", "Video messaging", "Video recording", "WiFi", "Large keys", "Memory card", "QWERTY keyboard", "LandlineOnly"];
   filterValues: string[] = [];
+  showFilters: boolean = false;
 
+  /*
+   *  @function getPhones
+   *
+   *  Get phone data from PhoneDataService, assign immutable
+   *  copy to this.phones any[] and mutable copy to 
+   *  this.filteredPhones any[].
+   *
+   *  PhoneListComponent will update once this value is set, 
+   *  rendering the list of mobile phones.
+   */
   getPhones() {
     this.phoneDataService.getPhones().then(phones => {
       this.phones = phones;
@@ -27,7 +38,16 @@ export class PhoneListComponent implements OnInit {
     });
   }
 
-  updateFilterValues(value: string) {
+  /*
+   *  @function updateFilter
+   *
+   *  Update filterValues string[] by adding or removing
+   *  provided string.
+   *
+   *  Call this.filterPhones() to render PhoneListComponent
+   *  using new filter values.
+   */
+  updateFilter(value: string) {
     let index = this.filterValues.indexOf(value);
     if(index > -1) {
       this.filterValues.splice(index, 1);

@@ -19,11 +19,24 @@ export class PhoneDetailComponent implements OnInit, OnDestroy {
   private sub: any;
   phoneSeoName: string;
   phone: any = {};
+  activePreviewImage: number = 1;
+  quantity: number = 1;
 
+  /*
+   *  @function getPhone
+   *
+   *  Get phone data from PhoneDataService using seoName as a filter,
+   *  assign the result to this.phone any. Generates a list of filter
+   *  keys from the data which are used to render a list of features.
+   *
+   *  PhoneDetailComponent will update once these values are set, 
+   *  rendering the phone detail view.
+   */
   getPhone(seoName: string) {
     this.phoneDataService.getPhone(seoName).then(phone => { 
       this.phone = phone[0]; 
-      this.phone.filterKeys = Object.keys(phone[0].filterfeatures) 
+      this.phone.filterKeys = Object.keys(phone[0].filterfeatures);
+      console.log(phone[0]);
     });
   }
 

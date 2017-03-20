@@ -6,6 +6,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class IterateOverObjectPipe implements PipeTransform {
 
   /**
+   *  @function transform
+   *
    *  Object is not an interable type so it cannot be used within
    *  the NgFor directive. In this pipe we accept an Object of Objects
    *  and return Array of Objects so it can be used to generate components

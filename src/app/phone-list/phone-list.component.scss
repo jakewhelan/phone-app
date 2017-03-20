@@ -12,6 +12,7 @@
     vertical-align: middle;
     font-size: 18px;
     line-height: 16px;
+    cursor: pointer;
     &:before {
       content: '\2295';
       padding-bottom: 2px;
@@ -56,7 +57,6 @@
     width: 24px;
     cursor: pointer;
   }
-
   label {
     @include grid(column, auto, align-middle, align-left);
     cursor: pointer;
@@ -67,7 +67,7 @@
   }
 
   @include breakpoint(large) {
-    @include grid(column, 3, align-left)
+    @include grid(column, 4, align-left)
   }
 }
 
@@ -76,6 +76,27 @@
   @include grid(row, null, align-left);
   border-top: $border;
   border-left: $border;
+}
+
+.list__message {
+  @include grid(column, 12);
+  @include grid(row);
+  border-right: $border;
+  border-bottom: $border;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+}
+
+.list__message__heading {
+  @include grid(column, 12);
+  font-size: 16px;
+}
+
+.list__message__body {
+  @include grid(column, 12);
+  text-transform: capitalize;
+  font-weight: 600;
 }
 
 .list__phone {

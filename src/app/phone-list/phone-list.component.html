@@ -1,15 +1,27 @@
 <div class="container">
   <div class="filter-button">
-    <button class="p2 mt2 ml2" (click)="no()"></button>
+    <button class="p2 my2 ml2" (click)="showFilters = !showFilters"></button>
   </div>
   <div class="filter px5 pt3 pb5">
-    <h2 class="filter__heading pl3 mb0">Filters: </h2>
-    <div class="filter__value p3" *ngFor="let filter of filters">
-      <input class="mr4" type="checkbox" [name]="filter" [value]="filter" [id]="filter" [checked]="filterValues.includes(filter)" (change)="updateFilterValues(filter)">
-      <label [for]="filter">{{filter}}</label>
-    </div>
+    <ng-container *ngIf="showFilters">
+      <h2 class="filter__heading pl3 mb0">Filters: </h2>
+      <div class="filter__value p3" *ngFor="let filter of filters">
+        <input class="mr4" type="checkbox" [name]="filter" [value]="filter" [id]="filter" [checked]="filterValues.indexOf(filter) >= 0" (change)="updateFilter(filter)">
+        <label [for]="filter">{{filter}}</label>
+      </div>
+    </ng-container>
   </div>
   <div class="list">
+    <div class="list__message p3" *ngIf="filterValues.length > 0">
+      <div class="list__message__heading pb1">
+        {{filteredPhones.length}} results using filters:
+      </div>
+      <div class="list__message__body">
+        <ng-container *ngFor="let filter of filterValues; let i = index">
+          {{filter}}<ng-container *ngIf="i != (filterValues.length -1)">, </ng-container>
+        </ng-container>
+      </div>
+    </div>
     <app-phone class="list__phone p5" *ngFor="let phone of filteredPhones" [phone]="phone"></app-phone>
   </div>
 </div>

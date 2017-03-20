@@ -76,7 +76,6 @@
   @include grid(row, null, align-center);
   font-size: 32px;
   line-height: 36px;
-  -webkit-text-stroke: 1px $brand-black;
 }
 
 .rating__star {
@@ -115,5 +114,5 @@
 .cta {
   @include grid(column, 12);
   height: 40px;
-
+  cursor: pointer;
 }
