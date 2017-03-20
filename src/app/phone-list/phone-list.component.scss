@@ -5,12 +5,32 @@
 }
 
 .filter-button {
-  @include grid(column, 2);
+  @include grid(column, 2, align-top);
   background: $brand-grey;
+  vertical-align: middle;
   button {
+    vertical-align: middle;
+    font-size: 18px;
+    line-height: 16px;
     &:before {
       content: '\2295';
+      padding-bottom: 2px;
+      line-height: 14px;
+      font-size: 24px;
     }
+
+    @include breakpoint(medium) {
+      &:after {
+        content: 'Filters';
+        padding-left: $space1;
+      }
+    }  
+    @include breakpoint(large) {
+      &:after {
+        content: 'Filters';
+        padding-left: $space1;
+      }
+    }  
   }
 }
 
@@ -22,20 +42,27 @@
 
 .filter__heading {
   @include grid(column, 12);
+  font-size: 16px;
 }
 
 .filter__value {
   @include grid(column, 12, align-left);
-
+  @include grid(row, null, align-middle, align-left);
+  font-size: 20px;
+  line-height: 20px;
   input {
-
+    @include grid(column, auto, align-middle, align-left);
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
   }
 
   label {
-
+    @include grid(column, auto, align-middle, align-left);
+    cursor: pointer;
   }
 
-   @include breakpoint(medium) {
+  @include breakpoint(medium) {
     @include grid(column, 6, align-left)
   }
 

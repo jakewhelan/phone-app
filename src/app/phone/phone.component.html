@@ -1,19 +1,19 @@
-<div class="image">image</div>
-<div class="colours">
-  <div class="colours__colour mx1" *ngFor="let colour of phone.colors" [ngClass]="'is-' + colour.toLowerCase().split(' ').join('-')" [title]="colour">{{colour}}</div>
-  <div class="colours__colour white mx1" *ngIf="!phone.colors" title="white">white</div>
+<div class="image mb3 mt5">image</div>
+<div class="colours mb3">
+  <div class="colours__colour mx1" *ngFor="let colour of phone.colors" [ngClass]="'is-' + colour.toLowerCase().split(' ').join('-')" [title]="colour"></div>
+  <div class="colours__colour white mx1" *ngIf="!phone.colors" title="white"></div>
 </div>
-<div class="name">{{phone.description}}</div>
-<div class="rating">
-  <div class="rating__star" *ngFor="let rating of phone.ratingArray" [ngClass]="{'is-active': rating == 1}"></div>
+<div class="name mb3">{{phone.description}}</div>
+<div class="rating mb3">
+  <div class="rating__star mx1" *ngFor="let rating of phone.ratingArray" [ngClass]="{'is-active': rating == 1}"></div>
 </div>
-<div class="price">
+<div class="price mb3">
   From 
   <ng-container *ngIf="phone.priceFrom == 0">FREE</ng-container>
   <ng-container *ngIf="phone.priceFrom > 0">&euro;{{phone.priceFrom}}</ng-container>
 </div>
-<div class="availability">
+<div class="availability mb3">
   <span class="availability__out-of-stock" *ngIf="phone.outOfStock">OUT OF STOCK</span>
   <span class="availability__in-stock" *ngIf="!phone.outOfStock">IN STOCK</span>
 </div>
-<button class="cta" [routerLink]="['detail', phone.seoName]">Buy Now</button>
+<button class="cta mb3" [routerLink]="['detail', phone.seoName]">Buy Now</button>

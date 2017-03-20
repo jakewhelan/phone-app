@@ -1,15 +1,15 @@
 <div class="container">
   <div class="filter-button">
-    <button (click)="ok()"></button>
+    <button class="p2 mt2 ml2" (click)="no()"></button>
   </div>
-  <div class="filter">
-    <div class="filter__heading">Filters: </div>
-    <div class="filter__value" *ngFor="let filter of filters">
-      <input type="checkbox" [name]="filter" [value]="filter" [id]="filter">
+  <div class="filter px5 pt3 pb5">
+    <h2 class="filter__heading pl3 mb0">Filters: </h2>
+    <div class="filter__value p3" *ngFor="let filter of filters">
+      <input class="mr4" type="checkbox" [name]="filter" [value]="filter" [id]="filter" [checked]="filterValues.includes(filter)" (change)="updateFilterValues(filter)">
       <label [for]="filter">{{filter}}</label>
     </div>
   </div>
   <div class="list">
-    <app-phone class="list__phone p5" *ngFor="let phone of phones" [phone]="phone"></app-phone>
+    <app-phone class="list__phone p5" *ngFor="let phone of filteredPhones" [phone]="phone"></app-phone>
   </div>
 </div>
